@@ -10,12 +10,26 @@ it("should add two number", () => {
     .toBeA("number");
 });
 
+it("should async add two number", done => {
+  utils.asyncAdd(4, 3, sum => {
+    expect(sum).toBe(7);
+    done();
+  });
+});
+
 it("should square number", () => {
   const res = utils.square(10);
 
   expect(res)
     .toBe(100)
     .toBeA("number");
+});
+
+it("should async square a number", done => {
+  utils.asyncSquare(7, sum => {
+    expect(sum).toBe(49);
+    done();
+  });
 });
 
 it("should verify first and last names are set", () => {
